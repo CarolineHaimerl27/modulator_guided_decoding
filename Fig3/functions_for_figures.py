@@ -5,9 +5,7 @@ from datetime import date
 import pickle
 import seaborn as sb
 import matplotlib.pyplot as plt
-from convergence import theo_var_what, d_perf, FLD_perf
-import pandas as pd
-
+from convergence import theo_var_what
 
 # color scheme
 my_cols = {'ML': 'black', 'ML-sign-only': 'black', 'MC-ML': 'red', \
@@ -65,7 +63,6 @@ def Fig2A_plot(SIM=None, name=None, savefig=False, relsigma=True):
         var = 'relsigma'
     else:
         var='sigma'
-    cutat = 100
     pal = sb.cubehelix_palette(len(np.unique(SIM.DECODER[var])), start=2, rot=0, dark=0, light=.85, reverse=True)
     plt.rc('xtick', labelsize=25)
     plt.rc('ytick', labelsize=25)

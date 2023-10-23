@@ -65,11 +65,6 @@ class simulate_response:
             self.w[ind] = self.w[ind][::-1]
         if self.beta==.5:
             self.w = np.random.choice(self.w, self.D)
-        '''w1 = np.zeros([self.D])
-        w1[np.abs(np.diff(self.M).T[0])>0] = 1
-        w2 = np.random.random(self.D)
-        wtmp = w1*(1-self.beta)+w2*(self.beta)
-        self.w = wtmp/np.max(wtmp)*self.scalw# w/np.sqrt(np.sum(w**2))'''
 
 
     def response(self, s, ustim, seed_sample=None, mean_out=False, sig_m=None, want_relsigm=True, sigm_add=0, multiunit=False):

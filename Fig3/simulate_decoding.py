@@ -12,9 +12,6 @@ import pickle
 from simulate_response import simulate_response
 from matplotlib import cm
 
-#from matplotlib import cm
-#import math
-
 class simulate_decoding:
 
     def par(self, seed=1, Nsim=500, Nsimseed=0, T=10000, D=50, Ninf = np.array([6]), Ninact = np.zeros(1), ustim=np.array([1,4]), scalw=1,
@@ -111,9 +108,6 @@ class simulate_decoding:
                                'axes.titlesize': 0,
                                'legend.fontsize': 24
                                })
-
-
-
 
         if len(self.SIGM)>1:
             # encoding-decoding tradeoff
@@ -228,9 +222,6 @@ def norm_sig(obj, plotit=False):
 
     return rel_sigma
 
-
-
-
 def vis_Ninf(SIM, types, yy=None, YY=np.array([0]), normsig=False, log=False, fit_p = 2):
     if normsig:
         if any(SIM.SIGM > 50):
@@ -241,7 +232,7 @@ def vis_Ninf(SIM, types, yy=None, YY=np.array([0]), normsig=False, log=False, fi
     sim = SIM.DECODER[SIM.DECODER.decoder == types[yy]]
 
     # change variable scaling for interpretability
-    sim.Ninf = sim.Ninf / SIM.D * 100  # from decoder --> already multiplied by 2!
+    sim.Ninf = sim.Ninf / SIM.D * 100  # from decoder --> already multiplied by 2
     rel_ninf = SIM.Ninf * 2 / SIM.D * 100
     SIGM = np.copy(SIM.SIGM)
     if log: SIGM[SIGM <= 0] = .01
@@ -262,7 +253,7 @@ def vis_Ninf(SIM, types, yy=None, YY=np.array([0]), normsig=False, log=False, fi
     for yy0 in YY:
         sim = SIM.DECODER[SIM.DECODER.decoder == types[yy0]]
         # change variable scaling for interpretability
-        sim.Ninf = sim.Ninf / SIM.D * 100  # from decoder --> already multiplied by 2!
+        sim.Ninf = sim.Ninf / SIM.D * 100  # from decoder --> already multiplied by 2
         rel_ninf = SIM.Ninf * 2 / SIM.D * 100
         SIGM = np.copy(SIM.SIGM)
         if log: SIGM[SIGM <= 0] = .01
